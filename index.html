@@ -423,16 +423,16 @@
           </div>
           <svg class="link-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </div>
-        <div class="link" onclick="document.getElementById('coachPanel').classList.add('open')">
+        <div class="link" onclick="document.getElementById('aiosPanel').classList.add('open')">
           <div class="link-icon gold-bg">
             <svg viewBox="0 0 24 24" fill="none" stroke="#E8A924" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/>
-              <path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/>
+              <rect x="2" y="3" width="20" height="14" rx="2"/>
+              <path d="M8 21h8M12 17v4"/>
             </svg>
           </div>
           <div class="link-text">
-            <div class="link-title">Coaching & Resources</div>
-            <div class="link-desc">Learn AI deployment your way</div>
+            <div class="link-title">AI Operating System Setup</div>
+            <div class="link-desc">Your AI trained on your business, running your ops</div>
           </div>
           <svg class="link-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </div>
@@ -481,10 +481,43 @@
             <div class="link-desc">Coming Soon</div>
           </div>
         </div>
+        <div class="link" onclick="document.getElementById('coachPanel').classList.add('open')">
+          <div class="link-icon neutral-bg">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#6BB3D9" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/>
+              <path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/>
+            </svg>
+          </div>
+          <div class="link-text">
+            <div class="link-title">Coaching & Resources</div>
+            <div class="link-desc">Learn AI deployment your way</div>
+          </div>
+          <svg class="link-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
       </div>
     </div>
 
     <div class="footer"><span>⚡</span> Sparboe Systems</div>
+  </div>
+
+  <!-- AI Operating System Setup Panel -->
+  <div class="panel-overlay" id="aiosPanel" onclick="if(event.target===this)this.classList.remove('open')">
+    <div class="panel">
+      <div class="panel-header">
+        <div class="panel-title">AI Operating System Setup</div>
+        <button class="panel-close" onclick="document.getElementById('aiosPanel').classList.remove('open')">&times;</button>
+      </div>
+      <p class="panel-desc">We set up your AI operating system — Claude trained on your SOPs, your voice, your business context. The longer it runs, the smarter it gets about your business.</p>
+      <ul class="panel-features">
+        <li><span class="check">▸</span>AI interface set up and matched to your comfort level — no technical background needed</li>
+        <li><span class="check">▸</span>Custom skills built from your SOPs — follow-ups, onboarding, proposals, whatever you repeat</li>
+        <li><span class="check">▸</span>Business context loaded permanently — your AI knows your offer, voice, and constraints</li>
+        <li><span class="check">▸</span>Knowledge base that grows as a byproduct of daily work</li>
+      </ul>
+      <div class="panel-divider"></div>
+      <p class="panel-price">Starting at <span>$5,000</span></p>
+      <a href="https://cal.com/ulrikssparboe/30min" target="_blank" rel="noopener noreferrer" class="panel-cta">Book a Free Call</a>
+    </div>
   </div>
 
   <!-- Coaching & Resources Panel -->
