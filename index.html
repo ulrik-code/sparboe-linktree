@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sparboe Systems: AI Agent Deployment</title>
-  <meta name="description" content="Sparboe Systems: Custom AI agents designed, built, and deployed for your business.">
-  <meta property="og:title" content="Sparboe Systems: AI Agent Deployment">
-  <meta property="og:description" content="Custom AI agents designed, built, and deployed for your business.">
+  <title>Sparboe Systems — AI Operating Systems for Business</title>
+  <meta name="description" content="Sparboe Systems — AI systems that know your business, run your workflows, and compound over time.">
+  <meta property="og:title" content="Sparboe Systems — AI Operating Systems for Business">
+  <meta property="og:description" content="AI systems that know your business, run your workflows, and compound over time.">
   <meta property="og:type" content="website">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#9889;</text></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -16,25 +16,25 @@
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
     :root {
-      --bg: #0a0a14;
-      --surface: rgba(255,255,255,0.08);
-      --surface-hover: rgba(255,255,255,0.12);
-      --border: rgba(255,255,255,0.08);
-      --border-hover: rgba(74,141,183,0.5);
+      --bg: #f7f7f8;
+      --surface: #ffffff;
+      --surface-hover: #ffffff;
+      --border: rgba(0,0,0,0.06);
+      --border-hover: rgba(74,141,183,0.4);
       --gold: #E8A924;
       --gold-light: #F5C34A;
-      --blue: #6BB3D9;
-      --blue-dark: #4A8DB7;
-      --blue-deep: #3D6B8E;
-      --text: #f0f0f5;
-      --text-dim: rgba(255,255,255,0.5);
-      --shadow: 0 1px 3px rgba(0,0,0,0.2), 0 4px 12px rgba(0,0,0,0.15);
-      --shadow-hover: 0 2px 8px rgba(74,141,183,0.2), 0 8px 24px rgba(74,141,183,0.15);
+      --blue: #4A8DB7;
+      --blue-dark: #3D6B8E;
+      --blue-deep: #2C4F6E;
+      --text: #1a1a2e;
+      --text-dim: rgba(0,0,0,0.45);
+      --shadow: 0 1px 3px rgba(0,0,0,0.04), 0 4px 12px rgba(0,0,0,0.03);
+      --shadow-hover: 0 2px 8px rgba(74,141,183,0.12), 0 8px 24px rgba(74,141,183,0.08);
     }
 
     body {
       font-family: 'Inter', -apple-system, system-ui, sans-serif;
-      background: #0a0a14;
+      background: var(--bg);
       color: var(--text);
       min-height: 100dvh;
       display: flex;
@@ -42,23 +42,14 @@
       overflow-x: hidden;
     }
 
-    /* Background image */
     body::before {
       content: '';
       position: fixed;
-      inset: 0;
-      background: url('bg.jpg') center top / cover no-repeat;
-      opacity: 0.55;
-      pointer-events: none;
-      z-index: 0;
-    }
-
-    /* Dark gradient overlay for readability */
-    body::after {
-      content: '';
-      position: fixed;
-      inset: 0;
-      background: linear-gradient(180deg, rgba(10,10,20,0.3) 0%, rgba(10,10,20,0.7) 50%, rgba(10,10,20,0.9) 100%);
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 300px;
+      background: linear-gradient(180deg, rgba(74,141,183,0.06) 0%, transparent 100%);
       pointer-events: none;
       z-index: 0;
     }
@@ -71,7 +62,6 @@
       padding: 44px 20px 40px;
     }
 
-    /* Profile / Logo */
     .profile {
       text-align: center;
       margin-bottom: 32px;
@@ -104,7 +94,6 @@
       font-weight: 500;
     }
 
-    /* Section boards */
     .board {
       border-radius: 20px;
       padding: 14px;
@@ -112,17 +101,18 @@
     }
 
     .board-gold {
-      background: linear-gradient(135deg, rgba(232,169,36,0.1), rgba(232,169,36,0.04));
-      border: 1px solid rgba(232,169,36,0.15);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
+      background: linear-gradient(135deg, rgba(232,169,36,0.1), rgba(232,169,36,0.05));
+      border: 1px solid rgba(232,169,36,0.12);
     }
 
     .board-blue {
-      background: linear-gradient(135deg, rgba(74,141,183,0.1), rgba(74,141,183,0.04));
-      border: 1px solid rgba(74,141,183,0.15);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
+      background: linear-gradient(135deg, rgba(74,141,183,0.1), rgba(74,141,183,0.05));
+      border: 1px solid rgba(74,141,183,0.12);
+    }
+
+    .board-neutral {
+      background: rgba(0,0,0,0.02);
+      border: 1px solid var(--border);
     }
 
     .board-label {
@@ -135,8 +125,8 @@
 
     .board-gold .board-label { color: var(--gold); }
     .board-blue .board-label { color: var(--blue); }
+    .board-neutral .board-label { color: var(--text-dim); }
 
-    /* Links */
     .links {
       display: flex;
       flex-direction: column;
@@ -176,59 +166,34 @@
       flex-shrink: 0;
     }
 
-    .link-icon.gold-bg {
-      background: linear-gradient(135deg, rgba(232,169,36,0.12), rgba(232,169,36,0.06));
-    }
+    .link-icon.gold-bg { background: linear-gradient(135deg, rgba(232,169,36,0.12), rgba(232,169,36,0.06)); }
+    .link-icon.blue-bg { background: linear-gradient(135deg, rgba(74,141,183,0.12), rgba(74,141,183,0.06)); }
+    .link-icon.neutral-bg { background: rgba(0,0,0,0.04); }
 
-    .link-icon.blue-bg {
-      background: linear-gradient(135deg, rgba(74,141,183,0.12), rgba(74,141,183,0.06));
-    }
+    .link-icon svg { width: 20px; height: 20px; }
 
-    .link-icon.neutral-bg {
-      background: rgba(255,255,255,0.06);
-    }
+    .link-text { flex: 1; min-width: 0; }
 
-    .link-icon svg {
-      width: 20px;
-      height: 20px;
-    }
+    .link-title { font-size: 14px; font-weight: 600; color: var(--text); }
 
-    .link-text {
-      flex: 1;
-      min-width: 0;
-    }
-
-    .link-title {
-      font-size: 14px;
-      font-weight: 600;
-      color: var(--text);
-    }
-
-    .link-desc {
-      font-size: 11px;
-      color: var(--text-dim);
-      margin-top: 2px;
-    }
+    .link-desc { font-size: 11px; color: var(--text-dim); margin-top: 2px; }
 
     .link-arrow {
-      color: rgba(255,255,255,0.2);
+      color: rgba(0,0,0,0.15);
       flex-shrink: 0;
       transition: color 0.25s;
     }
 
-    .link:hover .link-arrow {
-      color: var(--blue);
-    }
+    .link:hover .link-arrow { color: var(--blue); }
 
-    /* Divider */
     .divider {
       width: 32px;
       height: 1px;
-      background: rgba(255,255,255,0.1);
+      background: rgba(0,0,0,0.08);
       margin: 6px auto;
     }
 
-    /* Detail panel */
+    /* Panel */
     .panel-overlay {
       display: none;
       position: fixed;
@@ -242,13 +207,11 @@
       padding: 20px;
     }
 
-    .panel-overlay.open {
-      display: flex;
-    }
+    .panel-overlay.open { display: flex; }
 
     .panel {
-      background: #1a1a2e;
-      border-radius: 20px 20px 20px 20px;
+      background: #fff;
+      border-radius: 20px;
       max-width: 420px;
       width: 100%;
       padding: 28px 24px 24px;
@@ -270,18 +233,14 @@
       margin-bottom: 16px;
     }
 
-    .panel-title {
-      font-size: 18px;
-      font-weight: 700;
-      color: var(--text);
-    }
+    .panel-title { font-size: 18px; font-weight: 700; color: var(--text); }
 
     .panel-close {
       width: 32px;
       height: 32px;
       border-radius: 50%;
       border: none;
-      background: rgba(255,255,255,0.1);
+      background: rgba(0,0,0,0.05);
       color: var(--text-dim);
       font-size: 18px;
       cursor: pointer;
@@ -291,9 +250,7 @@
       transition: background 0.2s;
     }
 
-    .panel-close:hover {
-      background: rgba(255,255,255,0.15);
-    }
+    .panel-close:hover { background: rgba(0,0,0,0.1); }
 
     .panel-desc {
       font-size: 14px;
@@ -326,23 +283,7 @@
       margin-top: 1px;
     }
 
-    .panel-divider {
-      height: 1px;
-      background: rgba(255,255,255,0.08);
-      margin: 16px 0;
-    }
-
-    .panel-price {
-      font-size: 12px;
-      color: var(--text-dim);
-      margin-bottom: 14px;
-    }
-
-    .panel-price span {
-      color: var(--text);
-      font-weight: 700;
-      font-size: 14px;
-    }
+    .panel-divider { height: 1px; background: rgba(0,0,0,0.06); margin: 16px 0; }
 
     .panel-cta {
       display: block;
@@ -361,32 +302,63 @@
       -webkit-tap-highlight-color: transparent;
     }
 
-    .panel-cta:hover {
-      opacity: 0.9;
+    .panel-cta:hover { opacity: 0.9; }
+
+    .tier-card {
+      padding: 14px 16px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      margin-bottom: 8px;
     }
 
-    /* Footer */
+    .tier-card.featured {
+      border-color: rgba(232,169,36,0.2);
+      background: linear-gradient(135deg, rgba(232,169,36,0.04), rgba(232,169,36,0.01));
+    }
+
+    .tier-name {
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 4px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .tier-badge {
+      font-size: 9px;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      padding: 2px 6px;
+      border-radius: 4px;
+      background: rgba(232,169,36,0.12);
+      color: var(--gold);
+    }
+
+    .tier-desc {
+      font-size: 12px;
+      color: var(--text-dim);
+      line-height: 1.5;
+    }
+
     .footer {
       text-align: center;
       margin-top: 36px;
       font-size: 11px;
-      color: rgba(255,255,255,0.2);
+      color: rgba(0,0,0,0.2);
       font-weight: 500;
     }
 
-    .footer span {
-      color: var(--gold);
-    }
+    .footer span { color: var(--gold); }
+    .footer a { color: var(--text-dim); text-decoration: none; }
 
-    /* Stagger animation */
     .link { opacity: 0; animation: slideUp 0.4s ease forwards; }
     .link:nth-child(1) { animation-delay: 0.1s; }
     .link:nth-child(2) { animation-delay: 0.15s; }
     .link:nth-child(3) { animation-delay: 0.2s; }
     .link:nth-child(4) { animation-delay: 0.25s; }
     .link:nth-child(5) { animation-delay: 0.3s; }
-    .link:nth-child(6) { animation-delay: 0.35s; }
-    .link:nth-child(7) { animation-delay: 0.4s; }
 
     @keyframes slideUp {
       from { opacity: 0; transform: translateY(12px); }
@@ -396,20 +368,20 @@
 </head>
 <body>
   <div class="container">
-    <!-- Profile / Logo -->
+    <!-- Profile -->
     <div class="profile">
       <div class="logo-wrap">
         <img src="logo.png" alt="Sparboe Systems">
       </div>
       <div class="brand-name">Sparboe Systems</div>
-      <div class="tagline">AI Infrastructure for Businesses</div>
+      <div class="tagline">Orchestrating Intelligence</div>
     </div>
 
-    <!-- Gold board — CTAs -->
+    <!-- Services -->
     <div class="board board-gold">
       <div class="board-label">Services</div>
       <div class="links">
-        <div class="link" onclick="document.getElementById('deployPanel').classList.add('open')">
+        <div class="link" onclick="document.getElementById('servicesPanel').classList.add('open')">
           <div class="link-icon gold-bg">
             <svg viewBox="0 0 24 24" fill="none" stroke="#E8A924" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
               <path d="M12 2L2 7l10 5 10-5-10-5z"/>
@@ -418,28 +390,28 @@
             </svg>
           </div>
           <div class="link-text">
-            <div class="link-title">AI Agent Deployment</div>
-            <div class="link-desc">Custom agents built for your business</div>
+            <div class="link-title">AI Operating System</div>
+            <div class="link-desc">Systems that know your business and compound over time</div>
           </div>
           <svg class="link-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </div>
-        <div class="link" onclick="document.getElementById('aiosPanel').classList.add('open')">
+        <div class="link" onclick="document.getElementById('consultingPanel').classList.add('open')">
           <div class="link-icon gold-bg">
             <svg viewBox="0 0 24 24" fill="none" stroke="#E8A924" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="2" y="3" width="20" height="14" rx="2"/>
-              <path d="M8 21h8M12 17v4"/>
+              <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/>
+              <circle cx="12" cy="7" r="4"/>
             </svg>
           </div>
           <div class="link-text">
-            <div class="link-title">AI Operating System Setup</div>
-            <div class="link-desc">Your AI trained on your business, running your ops</div>
+            <div class="link-title">1-on-1 Consulting</div>
+            <div class="link-desc">Strategy sessions for AI deployment and operations</div>
           </div>
           <svg class="link-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </div>
       </div>
     </div>
 
-    <!-- Blue board — Socials -->
+    <!-- Connect -->
     <div class="board board-blue">
       <div class="board-label">Connect</div>
       <div class="links">
@@ -451,12 +423,24 @@
             </svg>
           </div>
           <div class="link-text">
-            <div class="link-title" style="color: var(--blue);">Book a Free Call</div>
-            <div class="link-desc">Strategy session, let's talk AI deployment</div>
+            <div class="link-title" style="color: var(--blue);">Book a Free Audit Call</div>
+            <div class="link-desc">15 min. We find your top 3 automatable workflows.</div>
           </div>
           <svg class="link-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </a>
-
+        <a href="https://sparboesystems.com" target="_blank" rel="noopener noreferrer" class="link">
+          <div class="link-icon neutral-bg">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#1a1a2e" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"/>
+              <path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/>
+            </svg>
+          </div>
+          <div class="link-text">
+            <div class="link-title">Website</div>
+            <div class="link-desc">sparboesystems.com</div>
+          </div>
+          <svg class="link-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
         <a href="https://www.youtube.com/@Sparboesystems" target="_blank" rel="noopener noreferrer" class="link">
           <div class="link-icon neutral-bg">
             <svg viewBox="0 0 24 24" fill="#FF0000">
@@ -469,185 +453,59 @@
           </div>
           <svg class="link-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </a>
-
-        <div class="link" style="cursor:default;opacity:0.7;">
-          <div class="link-icon neutral-bg">
-            <svg viewBox="0 0 24 24" fill="#2AABEE">
-              <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0h-.056zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.479.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
-            </svg>
-          </div>
-          <div class="link-text">
-            <div class="link-title">Telegram Community</div>
-            <div class="link-desc">Coming Soon</div>
-          </div>
-        </div>
-        <div class="link" onclick="document.getElementById('coachPanel').classList.add('open')">
-          <div class="link-icon neutral-bg">
-            <svg viewBox="0 0 24 24" fill="none" stroke="#6BB3D9" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/>
-              <path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/>
-            </svg>
-          </div>
-          <div class="link-text">
-            <div class="link-title">Coaching & Resources</div>
-            <div class="link-desc">Learn AI deployment your way</div>
-          </div>
-          <svg class="link-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </div>
       </div>
     </div>
 
-    <div class="footer"><span>⚡</span> Sparboe Systems</div>
+    <div class="footer"><span>&#9889;</span> Sparboe Systems &middot; <a href="https://sparboesystems.com">sparboesystems.com</a></div>
   </div>
 
-  <!-- AI Operating System Setup Panel -->
-  <div class="panel-overlay" id="aiosPanel" onclick="if(event.target===this)this.classList.remove('open')">
+  <!-- Services Panel -->
+  <div class="panel-overlay" id="servicesPanel" onclick="if(event.target===this)this.classList.remove('open')">
     <div class="panel">
       <div class="panel-header">
-        <div class="panel-title">AI Operating System Setup</div>
-        <button class="panel-close" onclick="document.getElementById('aiosPanel').classList.remove('open')">&times;</button>
+        <div class="panel-title">AI Operating System</div>
+        <button class="panel-close" onclick="document.getElementById('servicesPanel').classList.remove('open')">&times;</button>
       </div>
-      <p class="panel-desc">Your AI trained on your business, not a generic chatbot. The longer it runs, the smarter it gets.</p>
+      <p class="panel-desc">AI systems built around your business. Your SOPs, your workflows, your knowledge, encoded into infrastructure that compounds over time.</p>
 
-      <!-- Process infographic -->
-      <div style="display:flex; align-items:center; justify-content:space-between; padding:16px 8px; margin-bottom:20px; background:linear-gradient(135deg,rgba(232,169,36,0.1),rgba(74,141,183,0.1)); border-radius:12px;">
-        <div style="text-align:center; flex:1;">
-          <div style="width:36px;height:36px;border-radius:10px;background:rgba(232,169,36,0.12);display:flex;align-items:center;justify-content:center;margin:0 auto 6px;">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#E8A924" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
-          </div>
-          <div style="font-size:10px;font-weight:700;color:#E8A924;letter-spacing:0.04em;">DISCOVER</div>
-        </div>
-        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" style="flex-shrink:0;opacity:0.25;"><path d="M6 4l4 4-4 4" stroke="#f0f0f5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        <div style="text-align:center; flex:1;">
-          <div style="width:36px;height:36px;border-radius:10px;background:rgba(232,169,36,0.12);display:flex;align-items:center;justify-content:center;margin:0 auto 6px;">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#E8A924" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/></svg>
-          </div>
-          <div style="font-size:10px;font-weight:700;color:#E8A924;letter-spacing:0.04em;">ENCODE</div>
-        </div>
-        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" style="flex-shrink:0;opacity:0.25;"><path d="M6 4l4 4-4 4" stroke="#f0f0f5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        <div style="text-align:center; flex:1;">
-          <div style="width:36px;height:36px;border-radius:10px;background:rgba(74,141,183,0.12);display:flex;align-items:center;justify-content:center;margin:0 auto 6px;">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#4A8DB7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
-          </div>
-          <div style="font-size:10px;font-weight:700;color:#4A8DB7;letter-spacing:0.04em;">SETUP</div>
-        </div>
-        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" style="flex-shrink:0;opacity:0.25;"><path d="M6 4l4 4-4 4" stroke="#f0f0f5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        <div style="text-align:center; flex:1;">
-          <div style="width:36px;height:36px;border-radius:10px;background:rgba(74,141,183,0.12);display:flex;align-items:center;justify-content:center;margin:0 auto 6px;">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#4A8DB7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 20V10"/><path d="M12 20V4"/><path d="M6 20v-6"/></svg>
-          </div>
-          <div style="font-size:10px;font-weight:700;color:#4A8DB7;letter-spacing:0.04em;">GROW</div>
-        </div>
+      <div class="tier-card">
+        <div class="tier-name">Foundation Setup</div>
+        <div class="tier-desc">Claude Code configured for your business. Knowledge vault with your SOPs. Custom skills for core workflows. Training and handoff.</div>
       </div>
+
+      <div class="tier-card featured">
+        <div class="tier-name">Growth System <span class="tier-badge">Popular</span></div>
+        <div class="tier-desc">Everything in Foundation, plus automated content creation, client communication automation, and dedicated AI agents for key tasks.</div>
+      </div>
+
+      <div class="tier-card">
+        <div class="tier-name">Full AI Operating System</div>
+        <div class="tier-desc">Everything in Growth, plus multi-agent crew, outreach automation, custom integrations, and ongoing optimization.</div>
+      </div>
+
+      <div class="panel-divider"></div>
+      <p style="font-size:12px;color:var(--text-dim);margin-bottom:14px;">Custom pricing based on scope.</p>
+      <a href="https://cal.com/ulrikssparboe/30min" target="_blank" rel="noopener noreferrer" class="panel-cta">Book a Free Audit Call</a>
+    </div>
+  </div>
+
+  <!-- Consulting Panel -->
+  <div class="panel-overlay" id="consultingPanel" onclick="if(event.target===this)this.classList.remove('open')">
+    <div class="panel">
+      <div class="panel-header">
+        <div class="panel-title">1-on-1 Consulting</div>
+        <button class="panel-close" onclick="document.getElementById('consultingPanel').classList.remove('open')">&times;</button>
+      </div>
+      <p class="panel-desc">Personal strategy sessions for founders who want to deploy AI in their business. Whether you need a full system or just direction, we figure it out together.</p>
 
       <ul class="panel-features">
-        <li><span class="check">▸</span><span><strong style="color:var(--text);">AI interface</strong> set up and matched to your comfort level, no technical background needed</span></li>
-        <li><span class="check">▸</span><span><strong style="color:var(--text);">Custom skills</strong> built from your SOPs: follow-ups, onboarding, proposals, whatever you repeat</span></li>
-        <li><span class="check">▸</span><span><strong style="color:var(--text);">Business context</strong> loaded permanently, your AI knows your offer, voice, and constraints</span></li>
-        <li><span class="check">▸</span><span><strong style="color:var(--text);">Knowledge base</strong> that grows as a byproduct of daily work, not extra effort</span></li>
+        <li><span class="check">&#9654;</span>AI strategy and architecture for your business</li>
+        <li><span class="check">&#9654;</span>Knowledge vault and workflow design</li>
+        <li><span class="check">&#9654;</span>Tool selection and integration planning</li>
+        <li><span class="check">&#9654;</span>Hands-on implementation guidance</li>
       </ul>
       <div class="panel-divider"></div>
-      <p class="panel-price">Starting at <span>$5,000</span></p>
-      <a href="https://cal.com/ulrikssparboe/30min" target="_blank" rel="noopener noreferrer" class="panel-cta">Book a Free Call</a>
-    </div>
-  </div>
-
-  <!-- Coaching & Resources Panel -->
-  <div class="panel-overlay" id="coachPanel" onclick="if(event.target===this)this.classList.remove('open')">
-    <div class="panel">
-      <div class="panel-header">
-        <div class="panel-title">Coaching & Resources</div>
-        <button class="panel-close" onclick="document.getElementById('coachPanel').classList.remove('open')">&times;</button>
-      </div>
-      <p class="panel-desc">Level up your AI game with hands-on guidance.</p>
-
-      <!-- 1-on-1 Coaching -->
-      <div style="padding:16px;border-radius:14px;border:1px solid rgba(232,169,36,0.15);background:linear-gradient(135deg,rgba(232,169,36,0.06),rgba(232,169,36,0.02));margin-bottom:10px;">
-        <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px;">
-          <div style="width:32px;height:32px;border-radius:8px;background:rgba(232,169,36,0.12);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#E8A924" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-          </div>
-          <div style="font-size:15px;font-weight:700;color:#f0f0f5;">1-on-1 Coaching</div>
-        </div>
-        <p style="font-size:13px;color:rgba(255,255,255,0.5);line-height:1.5;margin-bottom:12px;">Personal sessions to build your AI strategy, deploy agents, and scale your operations.</p>
-        <a href="https://cal.com/ulrikssparboe/30min" target="_blank" rel="noopener noreferrer" style="display:block;text-align:center;padding:10px;border-radius:10px;background:linear-gradient(135deg,#E8A924,#F5C34A);color:#fff;font-size:13px;font-weight:700;text-decoration:none;">Book a Discovery Call</a>
-      </div>
-
-      <!-- Info Products -->
-      <div style="padding:16px;border-radius:14px;border:1px solid rgba(74,141,183,0.15);background:linear-gradient(135deg,rgba(74,141,183,0.06),rgba(74,141,183,0.02));margin-bottom:10px;">
-        <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px;">
-          <div style="width:32px;height:32px;border-radius:8px;background:rgba(74,141,183,0.12);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#4A8DB7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg>
-          </div>
-          <div style="font-size:15px;font-weight:700;color:#f0f0f5;">Info Products</div>
-        </div>
-        <p style="font-size:13px;color:rgba(255,255,255,0.5);line-height:1.5;margin-bottom:12px;">Guides, templates, and frameworks to learn AI deployment at your own pace.</p>
-        <div style="text-align:center;padding:10px;border-radius:10px;background:rgba(74,141,183,0.1);color:#4A8DB7;font-size:13px;font-weight:700;">Coming Soon</div>
-      </div>
-
-      <!-- Free Community -->
-      <div style="padding:16px;border-radius:14px;border:1px solid rgba(255,255,255,0.08);background:rgba(255,255,255,0.04);">
-        <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px;">
-          <div style="width:32px;height:32px;border-radius:8px;background:rgba(42,171,238,0.1);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="#2AABEE"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0h-.056zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.479.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
-          </div>
-          <div style="font-size:15px;font-weight:700;color:#f0f0f5;">Free Community</div>
-        </div>
-        <p style="font-size:13px;color:rgba(255,255,255,0.5);line-height:1.5;margin-bottom:12px;">Join other builders deploying AI agents. Share wins, ask questions, get early access to resources.</p>
-        <div style="text-align:center;padding:10px;border-radius:10px;background:rgba(42,171,238,0.06);color:#2AABEE;font-size:13px;font-weight:700;">Coming Soon</div>
-      </div>
-    </div>
-  </div>
-
-  <!-- AI Agent Deployment Panel -->
-  <div class="panel-overlay" id="deployPanel" onclick="if(event.target===this)this.classList.remove('open')">
-    <div class="panel">
-      <div class="panel-header">
-        <div class="panel-title">AI Agent Deployment</div>
-        <button class="panel-close" onclick="document.getElementById('deployPanel').classList.remove('open')">&times;</button>
-      </div>
-      <p class="panel-desc">Designed, built, and deployed for your specific business needs.</p>
-
-      <!-- Process infographic -->
-      <div style="display:flex; align-items:center; justify-content:space-between; padding:16px 8px; margin-bottom:20px; background:linear-gradient(135deg,rgba(232,169,36,0.1),rgba(74,141,183,0.1)); border-radius:12px;">
-        <div style="text-align:center; flex:1;">
-          <div style="width:36px;height:36px;border-radius:10px;background:rgba(232,169,36,0.12);display:flex;align-items:center;justify-content:center;margin:0 auto 6px;">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#E8A924" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
-          </div>
-          <div style="font-size:10px;font-weight:700;color:#E8A924;letter-spacing:0.04em;">DESIGN</div>
-        </div>
-        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" style="flex-shrink:0;opacity:0.25;"><path d="M6 4l4 4-4 4" stroke="#f0f0f5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        <div style="text-align:center; flex:1;">
-          <div style="width:36px;height:36px;border-radius:10px;background:rgba(232,169,36,0.12);display:flex;align-items:center;justify-content:center;margin:0 auto 6px;">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#E8A924" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>
-          </div>
-          <div style="font-size:10px;font-weight:700;color:#E8A924;letter-spacing:0.04em;">BUILD</div>
-        </div>
-        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" style="flex-shrink:0;opacity:0.25;"><path d="M6 4l4 4-4 4" stroke="#f0f0f5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        <div style="text-align:center; flex:1;">
-          <div style="width:36px;height:36px;border-radius:10px;background:rgba(74,141,183,0.12);display:flex;align-items:center;justify-content:center;margin:0 auto 6px;">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#4A8DB7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13"/><path d="M22 2l-7 20-4-9-9-4 20-7z"/></svg>
-          </div>
-          <div style="font-size:10px;font-weight:700;color:#4A8DB7;letter-spacing:0.04em;">DEPLOY</div>
-        </div>
-        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" style="flex-shrink:0;opacity:0.25;"><path d="M6 4l4 4-4 4" stroke="#f0f0f5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        <div style="text-align:center; flex:1;">
-          <div style="width:36px;height:36px;border-radius:10px;background:rgba(74,141,183,0.12);display:flex;align-items:center;justify-content:center;margin:0 auto 6px;">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#4A8DB7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 20V10"/><path d="M12 20V4"/><path d="M6 20v-6"/></svg>
-          </div>
-          <div style="font-size:10px;font-weight:700;color:#4A8DB7;letter-spacing:0.04em;">SUPPORT</div>
-        </div>
-      </div>
-
-      <ul class="panel-features">
-        <li><span class="check">▸</span>Custom AI agent architecture tailored to your workflows</li>
-        <li><span class="check">▸</span>Full integration with your existing tech stack</li>
-        <li><span class="check">▸</span>Training & fine-tuning on your business data</li>
-        <li><span class="check">▸</span>Ongoing monitoring, optimization & support</li>
-      </ul>
-      <div class="panel-divider"></div>
-      <p class="panel-price">Starting at <span>$2,500 / agent</span></p>
-      <a href="https://cal.com/ulrikssparboe/agent-deployment-consult" target="_blank" rel="noopener noreferrer" class="panel-cta">Book a Free Consultation</a>
+      <a href="https://cal.com/ulrikssparboe/30min" target="_blank" rel="noopener noreferrer" class="panel-cta">Book a Consulting Call</a>
     </div>
   </div>
 </body>
