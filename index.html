@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sparboe Systems — AI Operating Systems for Business</title>
-  <meta name="description" content="Sparboe Systems — AI systems that know your business, run your workflows, and compound over time.">
-  <meta property="og:title" content="Sparboe Systems — AI Operating Systems for Business">
+  <title>Sparboe Systems: Orchestrating Intelligence</title>
+  <meta name="description" content="AI systems that know your business, run your workflows, and compound over time.">
+  <meta property="og:title" content="Sparboe Systems: Orchestrating Intelligence">
   <meta property="og:description" content="AI systems that know your business, run your workflows, and compound over time.">
   <meta property="og:type" content="website">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#9889;</text></svg>">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -16,25 +16,25 @@
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
     :root {
-      --bg: #f7f7f8;
-      --surface: #ffffff;
-      --surface-hover: #ffffff;
-      --border: rgba(0,0,0,0.06);
-      --border-hover: rgba(74,141,183,0.4);
+      --bg: #0a0a14;
+      --surface: rgba(255,255,255,0.08);
+      --surface-hover: rgba(255,255,255,0.12);
+      --border: rgba(255,255,255,0.08);
+      --border-hover: rgba(74,141,183,0.5);
       --gold: #E8A924;
       --gold-light: #F5C34A;
-      --blue: #4A8DB7;
-      --blue-dark: #3D6B8E;
-      --blue-deep: #2C4F6E;
-      --text: #1a1a2e;
-      --text-dim: rgba(0,0,0,0.45);
-      --shadow: 0 1px 3px rgba(0,0,0,0.04), 0 4px 12px rgba(0,0,0,0.03);
-      --shadow-hover: 0 2px 8px rgba(74,141,183,0.12), 0 8px 24px rgba(74,141,183,0.08);
+      --blue: #6BB3D9;
+      --blue-dark: #4A8DB7;
+      --blue-deep: #3D6B8E;
+      --text: #f0f0f5;
+      --text-dim: rgba(255,255,255,0.5);
+      --shadow: 0 1px 3px rgba(0,0,0,0.2), 0 4px 12px rgba(0,0,0,0.15);
+      --shadow-hover: 0 2px 8px rgba(74,141,183,0.2), 0 8px 24px rgba(74,141,183,0.15);
     }
 
     body {
       font-family: 'Inter', -apple-system, system-ui, sans-serif;
-      background: var(--bg);
+      background: #0a0a14;
       color: var(--text);
       min-height: 100dvh;
       display: flex;
@@ -42,12 +42,23 @@
       overflow-x: hidden;
     }
 
+    /* Background image */
     body::before {
       content: '';
       position: fixed;
       inset: 0;
       background: url('bg.jpg') center top / cover no-repeat;
-      opacity: 0.12;
+      opacity: 0.55;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* Dark gradient overlay for readability */
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(10,10,20,0.3) 0%, rgba(10,10,20,0.7) 50%, rgba(10,10,20,0.9) 100%);
       pointer-events: none;
       z-index: 0;
     }
@@ -60,6 +71,7 @@
       padding: 44px 20px 40px;
     }
 
+    /* Profile / Logo */
     .profile {
       text-align: center;
       margin-bottom: 32px;
@@ -92,6 +104,7 @@
       font-weight: 500;
     }
 
+    /* Section boards */
     .board {
       border-radius: 20px;
       padding: 14px;
@@ -99,18 +112,17 @@
     }
 
     .board-gold {
-      background: linear-gradient(135deg, rgba(232,169,36,0.1), rgba(232,169,36,0.05));
-      border: 1px solid rgba(232,169,36,0.12);
+      background: linear-gradient(135deg, rgba(232,169,36,0.1), rgba(232,169,36,0.04));
+      border: 1px solid rgba(232,169,36,0.15);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
     }
 
     .board-blue {
-      background: linear-gradient(135deg, rgba(74,141,183,0.1), rgba(74,141,183,0.05));
-      border: 1px solid rgba(74,141,183,0.12);
-    }
-
-    .board-neutral {
-      background: rgba(0,0,0,0.02);
-      border: 1px solid var(--border);
+      background: linear-gradient(135deg, rgba(74,141,183,0.1), rgba(74,141,183,0.04));
+      border: 1px solid rgba(74,141,183,0.15);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
     }
 
     .board-label {
@@ -123,8 +135,8 @@
 
     .board-gold .board-label { color: var(--gold); }
     .board-blue .board-label { color: var(--blue); }
-    .board-neutral .board-label { color: var(--text-dim); }
 
+    /* Links */
     .links {
       display: flex;
       flex-direction: column;
@@ -164,34 +176,59 @@
       flex-shrink: 0;
     }
 
-    .link-icon.gold-bg { background: linear-gradient(135deg, rgba(232,169,36,0.12), rgba(232,169,36,0.06)); }
-    .link-icon.blue-bg { background: linear-gradient(135deg, rgba(74,141,183,0.12), rgba(74,141,183,0.06)); }
-    .link-icon.neutral-bg { background: rgba(0,0,0,0.04); }
+    .link-icon.gold-bg {
+      background: linear-gradient(135deg, rgba(232,169,36,0.12), rgba(232,169,36,0.06));
+    }
 
-    .link-icon svg { width: 20px; height: 20px; }
+    .link-icon.blue-bg {
+      background: linear-gradient(135deg, rgba(74,141,183,0.12), rgba(74,141,183,0.06));
+    }
 
-    .link-text { flex: 1; min-width: 0; }
+    .link-icon.neutral-bg {
+      background: rgba(255,255,255,0.06);
+    }
 
-    .link-title { font-size: 14px; font-weight: 600; color: var(--text); }
+    .link-icon svg {
+      width: 20px;
+      height: 20px;
+    }
 
-    .link-desc { font-size: 11px; color: var(--text-dim); margin-top: 2px; }
+    .link-text {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .link-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .link-desc {
+      font-size: 11px;
+      color: var(--text-dim);
+      margin-top: 2px;
+    }
 
     .link-arrow {
-      color: rgba(0,0,0,0.15);
+      color: rgba(255,255,255,0.2);
       flex-shrink: 0;
       transition: color 0.25s;
     }
 
-    .link:hover .link-arrow { color: var(--blue); }
+    .link:hover .link-arrow {
+      color: var(--blue);
+    }
 
+    /* Divider */
     .divider {
       width: 32px;
       height: 1px;
-      background: rgba(0,0,0,0.08);
+      background: rgba(255,255,255,0.1);
       margin: 6px auto;
     }
 
-    /* Panel */
+    /* Detail panel */
     .panel-overlay {
       display: none;
       position: fixed;
@@ -205,11 +242,13 @@
       padding: 20px;
     }
 
-    .panel-overlay.open { display: flex; }
+    .panel-overlay.open {
+      display: flex;
+    }
 
     .panel {
-      background: #fff;
-      border-radius: 20px;
+      background: #1a1a2e;
+      border-radius: 20px 20px 20px 20px;
       max-width: 420px;
       width: 100%;
       padding: 28px 24px 24px;
@@ -231,14 +270,18 @@
       margin-bottom: 16px;
     }
 
-    .panel-title { font-size: 18px; font-weight: 700; color: var(--text); }
+    .panel-title {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--text);
+    }
 
     .panel-close {
       width: 32px;
       height: 32px;
       border-radius: 50%;
       border: none;
-      background: rgba(0,0,0,0.05);
+      background: rgba(255,255,255,0.1);
       color: var(--text-dim);
       font-size: 18px;
       cursor: pointer;
@@ -248,7 +291,9 @@
       transition: background 0.2s;
     }
 
-    .panel-close:hover { background: rgba(0,0,0,0.1); }
+    .panel-close:hover {
+      background: rgba(255,255,255,0.15);
+    }
 
     .panel-desc {
       font-size: 14px;
@@ -281,7 +326,23 @@
       margin-top: 1px;
     }
 
-    .panel-divider { height: 1px; background: rgba(0,0,0,0.06); margin: 16px 0; }
+    .panel-divider {
+      height: 1px;
+      background: rgba(255,255,255,0.08);
+      margin: 16px 0;
+    }
+
+    .panel-price {
+      font-size: 12px;
+      color: var(--text-dim);
+      margin-bottom: 14px;
+    }
+
+    .panel-price span {
+      color: var(--text);
+      font-weight: 700;
+      font-size: 14px;
+    }
 
     .panel-cta {
       display: block;
@@ -300,63 +361,32 @@
       -webkit-tap-highlight-color: transparent;
     }
 
-    .panel-cta:hover { opacity: 0.9; }
-
-    .tier-card {
-      padding: 14px 16px;
-      border-radius: 12px;
-      border: 1px solid var(--border);
-      margin-bottom: 8px;
+    .panel-cta:hover {
+      opacity: 0.9;
     }
 
-    .tier-card.featured {
-      border-color: rgba(232,169,36,0.2);
-      background: linear-gradient(135deg, rgba(232,169,36,0.04), rgba(232,169,36,0.01));
-    }
-
-    .tier-name {
-      font-size: 14px;
-      font-weight: 700;
-      margin-bottom: 4px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .tier-badge {
-      font-size: 9px;
-      font-weight: 800;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-      padding: 2px 6px;
-      border-radius: 4px;
-      background: rgba(232,169,36,0.12);
-      color: var(--gold);
-    }
-
-    .tier-desc {
-      font-size: 12px;
-      color: var(--text-dim);
-      line-height: 1.5;
-    }
-
+    /* Footer */
     .footer {
       text-align: center;
       margin-top: 36px;
       font-size: 11px;
-      color: rgba(0,0,0,0.2);
+      color: rgba(255,255,255,0.2);
       font-weight: 500;
     }
 
-    .footer span { color: var(--gold); }
-    .footer a { color: var(--text-dim); text-decoration: none; }
+    .footer span {
+      color: var(--gold);
+    }
 
+    /* Stagger animation */
     .link { opacity: 0; animation: slideUp 0.4s ease forwards; }
     .link:nth-child(1) { animation-delay: 0.1s; }
     .link:nth-child(2) { animation-delay: 0.15s; }
     .link:nth-child(3) { animation-delay: 0.2s; }
     .link:nth-child(4) { animation-delay: 0.25s; }
     .link:nth-child(5) { animation-delay: 0.3s; }
+    .link:nth-child(6) { animation-delay: 0.35s; }
+    .link:nth-child(7) { animation-delay: 0.4s; }
 
     @keyframes slideUp {
       from { opacity: 0; transform: translateY(12px); }
@@ -366,7 +396,7 @@
 </head>
 <body>
   <div class="container">
-    <!-- Profile -->
+    <!-- Profile / Logo -->
     <div class="profile">
       <div class="logo-wrap">
         <img src="logo.png" alt="Sparboe Systems">
@@ -375,11 +405,11 @@
       <div class="tagline">Orchestrating Intelligence</div>
     </div>
 
-    <!-- Services -->
+    <!-- Gold board — CTAs -->
     <div class="board board-gold">
       <div class="board-label">Services</div>
       <div class="links">
-        <div class="link" onclick="document.getElementById('servicesPanel').classList.add('open')">
+        <div class="link" onclick="document.getElementById('deployPanel').classList.add('open')">
           <div class="link-icon gold-bg">
             <svg viewBox="0 0 24 24" fill="none" stroke="#E8A924" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
               <path d="M12 2L2 7l10 5 10-5-10-5z"/>
@@ -393,11 +423,11 @@
           </div>
           <svg class="link-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </div>
-        <div class="link" onclick="document.getElementById('consultingPanel').classList.add('open')">
+        <div class="link" onclick="document.getElementById('coachPanel').classList.add('open')">
           <div class="link-icon gold-bg">
             <svg viewBox="0 0 24 24" fill="none" stroke="#E8A924" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/>
-              <circle cx="12" cy="7" r="4"/>
+              <rect x="2" y="3" width="20" height="14" rx="2"/>
+              <path d="M8 21h8M12 17v4"/>
             </svg>
           </div>
           <div class="link-text">
@@ -409,7 +439,7 @@
       </div>
     </div>
 
-    <!-- Connect -->
+    <!-- Blue board — Socials -->
     <div class="board board-blue">
       <div class="board-label">Connect</div>
       <div class="links">
@@ -421,11 +451,25 @@
             </svg>
           </div>
           <div class="link-text">
-            <div class="link-title" style="color: var(--blue);">Book a Free Audit Call</div>
-            <div class="link-desc">15 min. We find your top 3 automatable workflows.</div>
+            <div class="link-title" style="color: var(--blue);">Book a Free Call</div>
+            <div class="link-desc">Strategy session, let's talk AI deployment</div>
           </div>
           <svg class="link-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </a>
+
+        <a href="https://www.youtube.com/@Sparboesystems" target="_blank" rel="noopener noreferrer" class="link">
+          <div class="link-icon neutral-bg">
+            <svg viewBox="0 0 24 24" fill="#FF0000">
+              <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+            </svg>
+          </div>
+          <div class="link-text">
+            <div class="link-title">YouTube</div>
+            <div class="link-desc">@Sparboesystems</div>
+          </div>
+          <svg class="link-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+
         <a href="https://sparboesystems.com" target="_blank" rel="noopener noreferrer" class="link">
           <div class="link-icon neutral-bg">
             <svg viewBox="0 0 24 24" fill="none" stroke="#1a1a2e" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
@@ -439,60 +483,31 @@
           </div>
           <svg class="link-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </a>
-        <a href="https://www.youtube.com/@Sparboesystems" target="_blank" rel="noopener noreferrer" class="link">
+        <div class="link" onclick="document.getElementById('coachPanel').classList.add('open')">
           <div class="link-icon neutral-bg">
-            <svg viewBox="0 0 24 24" fill="#FF0000">
-              <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+            <svg viewBox="0 0 24 24" fill="none" stroke="#6BB3D9" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/>
+              <path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/>
             </svg>
           </div>
           <div class="link-text">
-            <div class="link-title">YouTube</div>
-            <div class="link-desc">@Sparboesystems</div>
+            <div class="link-title">1-on-1 Consulting</div>
+            <div class="link-desc">Strategy sessions for AI deployment and operations</div>
           </div>
           <svg class="link-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </a>
+        </div>
       </div>
     </div>
 
-    <div class="footer"><span>&#9889;</span> Sparboe Systems &middot; <a href="https://sparboesystems.com">sparboesystems.com</a></div>
-  </div>
-
-  <!-- Services Panel -->
-  <div class="panel-overlay" id="servicesPanel" onclick="if(event.target===this)this.classList.remove('open')">
-    <div class="panel">
-      <div class="panel-header">
-        <div class="panel-title">AI Operating System</div>
-        <button class="panel-close" onclick="document.getElementById('servicesPanel').classList.remove('open')">&times;</button>
-      </div>
-      <p class="panel-desc">AI systems built around your business. Your SOPs, your workflows, your knowledge, encoded into infrastructure that compounds over time.</p>
-
-      <div class="tier-card">
-        <div class="tier-name">Foundation Setup</div>
-        <div class="tier-desc">Claude Code configured for your business. Knowledge vault with your SOPs. Custom skills for core workflows. Training and handoff.</div>
-      </div>
-
-      <div class="tier-card featured">
-        <div class="tier-name">Growth System <span class="tier-badge">Popular</span></div>
-        <div class="tier-desc">Everything in Foundation, plus automated content creation, client communication automation, and dedicated AI agents for key tasks.</div>
-      </div>
-
-      <div class="tier-card">
-        <div class="tier-name">Full AI Operating System</div>
-        <div class="tier-desc">Everything in Growth, plus multi-agent crew, outreach automation, custom integrations, and ongoing optimization.</div>
-      </div>
-
-      <div class="panel-divider"></div>
-      <p style="font-size:12px;color:var(--text-dim);margin-bottom:14px;">Custom pricing based on scope.</p>
-      <a href="https://cal.com/ulrikssparboe/30min" target="_blank" rel="noopener noreferrer" class="panel-cta">Book a Free Audit Call</a>
-    </div>
+    <div class="footer"><span>⚡</span> Sparboe Systems</div>
   </div>
 
   <!-- Consulting Panel -->
-  <div class="panel-overlay" id="consultingPanel" onclick="if(event.target===this)this.classList.remove('open')">
+  <div class="panel-overlay" id="coachPanel" onclick="if(event.target===this)this.classList.remove('open')">
     <div class="panel">
       <div class="panel-header">
         <div class="panel-title">1-on-1 Consulting</div>
-        <button class="panel-close" onclick="document.getElementById('consultingPanel').classList.remove('open')">&times;</button>
+        <button class="panel-close" onclick="document.getElementById('coachPanel').classList.remove('open')">&times;</button>
       </div>
       <p class="panel-desc">Personal strategy sessions for founders who want to deploy AI in their business. Whether you need a full system or just direction, we figure it out together.</p>
 
@@ -504,6 +519,36 @@
       </ul>
       <div class="panel-divider"></div>
       <a href="https://cal.com/ulrikssparboe/30min" target="_blank" rel="noopener noreferrer" class="panel-cta">Book a Consulting Call</a>
+    </div>
+  </div>
+
+  <!-- AI Agent Deployment Panel -->
+  <div class="panel-overlay" id="deployPanel" onclick="if(event.target===this)this.classList.remove('open')">
+    <div class="panel">
+      <div class="panel-header">
+        <div class="panel-title">AI Operating System</div>
+        <button class="panel-close" onclick="document.getElementById('deployPanel').classList.remove('open')">&times;</button>
+      </div>
+      <p class="panel-desc">AI systems built around your business. Your SOPs, your workflows, your knowledge, encoded into infrastructure that compounds over time.</p>
+
+      <div style="padding:14px 16px;border-radius:12px;border:1px solid rgba(0,0,0,0.06);margin-bottom:8px;">
+        <div style="font-size:14px;font-weight:700;margin-bottom:4px;">Foundation Setup</div>
+        <div style="font-size:12px;color:var(--text-dim);line-height:1.5;">Claude Code configured for your business. Knowledge vault with your SOPs. Custom skills for core workflows. Training and handoff.</div>
+      </div>
+
+      <div style="padding:14px 16px;border-radius:12px;border:1px solid rgba(232,169,36,0.2);background:linear-gradient(135deg,rgba(232,169,36,0.04),rgba(232,169,36,0.01));margin-bottom:8px;">
+        <div style="font-size:14px;font-weight:700;margin-bottom:4px;display:flex;align-items:center;gap:8px;">Growth System <span style="font-size:9px;font-weight:800;letter-spacing:0.04em;text-transform:uppercase;padding:2px 6px;border-radius:4px;background:rgba(232,169,36,0.12);color:var(--gold);">Popular</span></div>
+        <div style="font-size:12px;color:var(--text-dim);line-height:1.5;">Everything in Foundation, plus automated content creation, client communication automation, and dedicated AI agents for key tasks.</div>
+      </div>
+
+      <div style="padding:14px 16px;border-radius:12px;border:1px solid rgba(0,0,0,0.06);margin-bottom:8px;">
+        <div style="font-size:14px;font-weight:700;margin-bottom:4px;">Full AI Operating System</div>
+        <div style="font-size:12px;color:var(--text-dim);line-height:1.5;">Everything in Growth, plus multi-agent crew, outreach automation, custom integrations, and ongoing optimization.</div>
+      </div>
+
+      <div class="panel-divider"></div>
+      <p style="font-size:12px;color:var(--text-dim);margin-bottom:14px;">Custom pricing based on scope.</p>
+      <a href="https://cal.com/ulrikssparboe/30min" target="_blank" rel="noopener noreferrer" class="panel-cta">Book a Free Audit Call</a>
     </div>
   </div>
 </body>
